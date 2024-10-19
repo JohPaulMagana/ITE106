@@ -57,8 +57,7 @@ class StudentGradejohnpaul {
             double averageinputore = totalinputore;
             studentAverages[i] = averageinputore;
             classTotal += averageinputore;
-			
-			//Compute for Average Grades
+	
             if (averageinputore >= 90) {
                 letterGrades[i] = "A";
             }
