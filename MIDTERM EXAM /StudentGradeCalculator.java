@@ -6,7 +6,7 @@ public class StudentGradeCalculator {
 
         System.out.print("Enter the number of students: ");
         int numStudents = sc.nextInt();
-        sc.nextLine(); // consume the newline
+        sc.nextLine(); // 
 
         String[] studentNames = new String[numStudents];
         double[][] scores = new double[numStudents][];
