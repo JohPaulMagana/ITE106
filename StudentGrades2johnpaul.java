@@ -17,14 +17,12 @@ public class StudentGrades2johnpaul{
     public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
         
-        // Step 1: Array Storage
 		System.out.print("Enter the number of students: ");
 		int numStudents = scanner.nextInt();
-		System.out.print("Enter the number of assignments: ");  // Input for number of assignments
+		System.out.print("Enter the number of assignments: ");  
 		int numAssignments = scanner.nextInt();
 		Student[] students = new Student[numStudents];
         
-		// Step 2: Input
 		for (int i = 0; i < numStudents; i++){
 			System.out.print("Enter the name of student " + (i + 1) + ": ");
 			String name = scanner.next();
@@ -36,12 +34,11 @@ public class StudentGrades2johnpaul{
 					System.out.print("Enter score for " + name + ", assignment " + (j + 1) + ": ");
 					score = scanner.nextDouble();
 				}
-				while (score < 0 || score > 100);  // Input validation for score
+				while (score < 0 || score > 100);  
 				students[i].grades[j] = score;
 				}
 		}
-		
-		// Step 3: Calculation
+	
 		for (Student student : students){
 			double sum = 0;
 			for (double grade : student.grades){
@@ -51,7 +48,6 @@ public class StudentGrades2johnpaul{
 			student.letterGrade = calculateLetterGrade(student.average);
 		}
         
-		// Step 4: Output
 		System.out.printf("\n%-20s %-80s %-10s %-5s%n", "Name", "Scores", "Average", "Grade");
 		for (Student student : students){
 			System.out.printf("%-20s ", student.name);
@@ -61,17 +57,14 @@ public class StudentGrades2johnpaul{
 				System.out.printf("%-10.2f %-5c%n", student.average, student.letterGrade);
 			}
         
-		// Find highest and lowest averages
 		double highestAvg = Arrays.stream(students).mapToDouble(s -> s.average).max().orElse(0);
 		double lowestAvg = Arrays.stream(students).mapToDouble(s -> s.average).min().orElse(0);
         
 		System.out.printf("\nHighest Average Score: %.2f%n", highestAvg);
 		System.out.printf("Lowest Average Score: %.2f%n", lowestAvg);
         
-		// Sort students by average score
 		Arrays.sort(students, (s1, s2) -> Double.compare(s1.average, s2.average));
         
-		// Output sorted students
 		System.out.println("\nStudents Sorted by Average Score:");
 		for (Student student : students) {
 			System.out.printf("%-20s %-10.2f %c%n", student.name, student.average, student.letterGrade);
