@@ -13,7 +13,7 @@ public class StudentGradingSystemFileIOjohnpaul{
 
 
             String[] header = scanner.nextLine().split(",");
-            int numAssignments = header.length - 1; // Exclude the "Name" column
+            int numAssignments = header.length - 1; 
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
